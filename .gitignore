@@ -10,9 +10,5 @@ node_modules/
 .venv/
 env/
 
-# Large videos
-*.mp4
-data/videos/
-
 # YOLO weights (optional)
 *.pt
