@@ -205,14 +205,25 @@ python -m pytest tests -v
 
 ## Dashboard Preview
 
-### Main Dashboard
-![Dashboard Overview](docs/dashboard.png)
-
-### Funnel Analytics
-![Conversion Funnel](docs/funnel.png)
+### Overview Dashboard
+<p align="center">
+  <img src="docs/dashboard-overview.png" width="1000">
+</p>
 
 ### Heatmap Analytics
-![Zone Heatmap](docs/heatmap.png)
+<p align="center">
+  <img src="docs/heatmap.png" width="1000">
+</p>
+
+### Conversion Funnel
+<p align="center">
+  <img src="docs/funnel.png" width="1000">
+</p>
+
+### AI Insights
+<p align="center">
+  <img src="docs/ai-insights.png" width="1000">
+</p>
 
 ---
 
