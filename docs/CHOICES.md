@@ -238,15 +238,15 @@ The system needs to persist events, sessions, and analytics data in a way that s
 
 ### Rationale
 
-The analytics layer relies heavily on aggregation queries (COUNT, SUM, AVG grouped by time window and zone). PostgreSQL's query planner handles these efficiently, and its JSONB support allows event metadata to be stored flexibly without schema migrations for each new event field.
+The Store Intelligence System is built around an event-driven analytics architecture. SQLAlchemy was chosen as the persistence abstraction layer because it cleanly separates application logic from the underlying data storage implementation.
 
-SQLite was considered for its simplicity but rejected because it does not support concurrent writes from multiple pipeline workers — a requirement as soon as a second camera is added.
+Using SQLAlchemy allows the backend services, analytics modules, and API layer to interact with a consistent data model while remaining database-agnostic. This approach simplifies development, improves maintainability, and provides flexibility for future integration with production-grade databases such as PostgreSQL.
 
-PostgreSQL also provides a clear upgrade path to TimescaleDB for time-series optimization if event volume grows significantly.
+For the challenge implementation, the focus is on event processing, analytics computation, and API functionality. A database-ready architecture ensures the system can scale to persistent storage requirements without requiring significant architectural changes.
 
 ### Tradeoff Accepted
 
-PostgreSQL requires more operational setup than SQLite (separate process, connection pooling). For the challenge scope this is fully managed by Docker Compose, with no manual configuration required.
+Using an ORM abstraction introduces an additional layer between the application and the underlying storage mechanism. While this adds some complexity compared to direct data handling, it improves code organization, portability, maintainability, and future scalability. The benefits outweigh the small overhead for the scope of this project.
 
 ---
 
